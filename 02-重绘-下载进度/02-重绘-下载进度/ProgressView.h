@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ProgressView : UIView
-
+@property (nonatomic, assign)CGFloat progress;
 @end

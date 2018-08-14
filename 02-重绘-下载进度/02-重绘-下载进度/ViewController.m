@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "ProgressView.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet ProgressView *progressView;
 
 @end
 
@@ -17,7 +20,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.label.text = [NSString stringWithFormat:@"%.2d%%",0];
+
 }
+- (IBAction)drag:(id)sender {
+    UISlider *slider = (UISlider *)sender;
+    self.progressView.progress = slider.value;
+    
+    self.label.text = [NSString stringWithFormat:@"%.2f%%",slider.value*100];
+}
+
 
 
 - (void)didReceiveMemoryWarning {
